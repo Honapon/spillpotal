@@ -14,7 +14,7 @@
         <form action="">
             <input name="usernaeme" type="text" placeholder="Username">
             <input name="password" type="password" placeholder="Password">
-            <a href="register.php">register</a>
+            <a href="register.php">Register</a>
             <button>
                 Logg inn
             </button>
