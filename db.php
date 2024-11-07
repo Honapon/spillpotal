@@ -11,9 +11,9 @@
 </html>
 <?php
  
-$dsn = "mysql:host=localhost;dbname=phpOppgave";
+$dsn = "mysql:host=localhost;dbname=user_n_password";
 $username = "game";
-$password = "passwordforgame";
+$password = "password";
  
 try {
     $connect = new PDO($dsn, $username, $password);
