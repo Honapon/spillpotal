@@ -2,25 +2,20 @@
 require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
-    echo("test0");
+   
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    echo("test1");
     $connect = dbConnect();
-    echo("test2");
-
     $stmt = $connect->prepare("SELECT * FROM userogpass WHERE username = ?");
-    echo("test3");
     $stmt->execute([$username]);
-    echo("test4");
+    
     if ($stmt->fetch()) {
-        $error = '<div class="error">Username already taken</div>';
+        echo '<div class="error">Username already taken</div>';
         exit;
     }
-    echo("test5");
+
     $stmt = $connect->prepare("INSERT INTO userogpass (username, passord_hash) VALUES (?, ?)");
-    echo("test6");
     $stmt->execute([$username, $password]);
     echo  '<div class="success">User created</div>';
 
