@@ -1,3 +1,28 @@
+<?php
+require 'db.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $connect = dbConnect();
+
+    $stmt = $connect->prepare("SELECT * FROM userogpass WHERE username = ?");
+    $stmt->execute([$username]);
+    if ($stmt->fetch()) {
+        $error = '<div class="error">Username already taken</div>';
+        exit;
+    }
+    $stmt = $connect->prepare("INSERT INTO userogpass (username, passord_hash) VALUES (?, ?)");
+    $stmt->execute([$username, $password]);
+    echo  '<div class="success">User created</div>';
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +37,7 @@
     <div class="skjema">
         <h1>Logg inn</h1>
         <form action="">
-            <input name="usernaeme" type="text" placeholder="Username">
+            <input name="username" type="text" placeholder="Username">
             <input name="password" type="password" placeholder="Password">
             <a href="register.php">Register</a>
             <button>
