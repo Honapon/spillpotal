@@ -2,6 +2,7 @@
 require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
+    echo("test0");
     $username = $_POST["username"];
     $password = $_POST["password"];
 
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <body>
     <div class="skjema">
         <h1>Logg inn</h1>
-        <form action="">
+        <form method="post">
             <input name="username" type="text" placeholder="Username">
             <input name="password" type="password" placeholder="Password">
             <a href="register.php">Register</a>
