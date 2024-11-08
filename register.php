@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <div class="skjema">
         <h1>Create an account</h1>
         <form method="post">
-            <input type="text" placeholder="create a username">
-            <input type="password" placeholder=" create a password">
+            <input name="username" type="text" placeholder="create a username">
+            <input name="password" type="password" placeholder=" create a password">
             <a href="index.php">Already have a user?</a>
         </form>
         <button>
