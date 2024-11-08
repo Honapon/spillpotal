@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
-    if ($user['username'] == $username) {
+    if ($user['username'] == $username  && $user['password'] == $password) {
+
         print_r($user);
     }
 }
