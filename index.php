@@ -1,5 +1,24 @@
+<?php
+require 'db.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+   
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $connect = dbConnect();
+
+    $stmt = $connect->prepare("SELECT * FROM userogpass WHERE username = ?");
+    $stmt->execute([$username]);
+    $user = $stmt->fetch();
+
+    if ($user['username'] == $username) {
+        print_r($user);
+    }
+}
 
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
