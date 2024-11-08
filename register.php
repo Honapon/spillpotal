@@ -38,10 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             <input name="username" type="text" placeholder="create a username">
             <input name="password" type="password" placeholder=" create a password">
             <a href="index.php">Already have a user?</a>
+            <button>
+                Register
+            </button>
         </form>
-        <button>
-            Register
-        </button>
+
     </div>
 </body>
 </html>
